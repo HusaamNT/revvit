@@ -15,7 +15,7 @@ hashTags.init(
       type: DataTypes.STRING,
       validate: {
         len: [1, 30],
-        is: /[a-zA-Z0-9]/,
+        is: /[a-zA-Z0-9]*/,
       },
       unique: true,
     },

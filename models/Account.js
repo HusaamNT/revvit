@@ -14,14 +14,15 @@ accounts.init(
     Username: {
       type: DataTypes.STRING,
       validate: {
-        is: /[a-zA-Z0-9]/,
+        is: /[a-zA-Z0-9]*/,
         len: [1, 30],
       },
     },
     Password: {
       type: DataType.STRING,
       validate: {
-        is: /[a-zA-Z0-9]/, //needs special char
+        is: /[a-zA-Z0-9]*/,
+        len: [8]
       },
     },
     Name: {
