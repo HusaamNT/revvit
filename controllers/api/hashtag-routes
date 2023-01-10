@@ -1,0 +1,2 @@
+router.use('/hashtag', hashtagRoutes);
+const hashtagRoutes = require('./hashtag-routes');
