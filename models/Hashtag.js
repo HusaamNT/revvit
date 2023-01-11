@@ -28,3 +28,5 @@ hashTags.init(
     modelName: "hashTags",
   }
 );
+
+module.exports = hashTags;

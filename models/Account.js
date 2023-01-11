@@ -1,5 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 
+const bcrypt = require("bcrypt");
+
 const sequelize = require("../config/connection");
 
 class accounts extends Model {}
@@ -41,5 +43,15 @@ accounts.init(
     freezeTableName: true,
     underscored: false,
     modelName: "accounts",
+    instanceMethods: {
+        generateHash(Password) {
+            return bcrypt.hash(Password, bcrypt.genSaltSync(8));
+        },
+        validPassword(Password) {
+            return bcrypt.compare(Password, this.Password);
+        }
+    }
   }
 );
+
+module.exports = accounts;
