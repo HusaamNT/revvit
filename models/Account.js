@@ -24,7 +24,7 @@ accounts.init(
       type: DataType.STRING,
       validate: {
         is: /[a-zA-Z0-9]*/,
-        len: [8]
+        len: [8],
       },
     },
     Name: {
@@ -38,19 +38,23 @@ accounts.init(
     },
   },
   {
+    hooks: {
+      beforeCreate: async (newUserData) => {
+        newUserData.Password = await bcrypt.hash(newUserData.Password, 10);
+        return newUserData;
+      },
+      beforeUpdate: async (updatedUserData) => {
+        if (updatedUserData.Password) {
+          updatedUserData.Password = await bcrypt.hash(updatedUserData.Password, 10);
+        }
+        return updatedUserData;
+      },
+    },
     sequelize,
     timestamps: true,
     freezeTableName: true,
     underscored: false,
     modelName: "accounts",
-    instanceMethods: {
-        generateHash(Password) {
-            return bcrypt.hash(Password, bcrypt.genSaltSync(8));
-        },
-        validPassword(Password) {
-            return bcrypt.compare(Password, this.Password);
-        }
-    }
   }
 );
 
