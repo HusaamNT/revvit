@@ -1,8 +1,13 @@
 const postTags = require("../models/PostTag");
 
-const postTagsData = [{
+const postTagsData = [
+{
 
-}];
+},
+{
+
+}
+];
 
 const seedPostTags = () => postTags.bulkCreate(postTagsData);
 

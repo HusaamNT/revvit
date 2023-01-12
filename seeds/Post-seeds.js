@@ -1,11 +1,35 @@
 const Post = require("../models/Post");
 
-
-const postsData = [{
-    Image: "Image string data",
+const postsData = [
+{
+    Image: "",
 },
 {
-    Image: "Image string data 2",
+    Image: "",
+},
+{
+    Image: "",
+},
+{
+    Image: "",
+},
+{
+    Image: "",
+},
+{
+    Image: "",
+},
+{
+    Image: "",
+},
+{
+    Image: "",
+},
+{
+    Image: "",
+},
+{
+    Image: "",
 }
 ];
 

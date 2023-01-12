@@ -1,9 +1,7 @@
-
 const seedAccounts = require("./Account-seeds");
 const seedHashtag = require("./Hashtag-seeds");
 const seedPost = require("./Post-seeds");
 const seedPostTags = require("./PostTags-seeds");
-
 
 const sequelize = require('../config/connection');
 

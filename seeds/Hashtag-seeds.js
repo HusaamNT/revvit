@@ -2,11 +2,45 @@ const hashTags = require("../models/Hashtag");
 
 
 const hashtagData =  [{
-    Name: "exampleName"
+    Name: "SpeedDemon"
 },
 {
-    Name: "exampleName2"
-}];
+    Name: "RaceReady"
+}
+,
+{
+    Name: "Turbocharged"
+}
+,
+{
+    Name: "DriftKing"
+}
+,
+{
+    Name: "Gearhead"
+}
+,
+{
+    Name: "StreetRacer"
+}
+,
+{
+    Name: "HighOctane"
+}
+,
+{
+    Name: "NitroJunkie"
+}
+,
+{
+    Name: "TrackHound"
+}
+,
+{
+    Name: "TunerNation"
+}
+
+];
 
 const seedHashtag = () => hashTags.bulkCreate(hashtagData);
 
