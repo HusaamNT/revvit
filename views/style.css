@@ -1,11 +1,31 @@
 * {
-    margin: auto;
-    padding: 0%;
     box-sizing: border-box;
-
+    background-color: grey;
 }
+
+body{
+    margin-left: 10%; 
+    margin-right: 10%;
+    margin-top: 2em;
+}
+
+header {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 nav ul li {
     padding: 0px 20px;
+}
+
+nav {
+    background-color: grey;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: inline-block;
 }
 
 
@@ -14,6 +34,7 @@ ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    background-color: grey;
 }
 
 li {
@@ -26,3 +47,4 @@ footer {
     list-style: none;
 }
 
+    
