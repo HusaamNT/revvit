@@ -20,8 +20,14 @@ router.get('/search/:hashtag', async (req, res, next) => {
 //Post #Tags 
 router.post('/search/hashtag', async (res,)=> {
   res.send("Search hashtags")
-}
-);
+  try{
+    const postData = await Post.create;
+    res.status(200).json(postData);
+  }catch(err){
+    res.status(400).json(err);
+  }
+});
+
 
 
 
