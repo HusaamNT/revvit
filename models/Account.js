@@ -11,7 +11,7 @@ accounts.init(
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      PrimaryKey: true,
+      primaryKey: true,
       autoIncrement: true
     },
     Username: {
@@ -22,7 +22,7 @@ accounts.init(
       },
     },
     Password: {
-      type: DataType.STRING,
+      type: DataTypes.STRING,
       validate: {
         is: /[a-zA-Z0-9]*/,
         len: [8],
@@ -32,13 +32,13 @@ accounts.init(
       type: DataTypes.STRING,
     },
     Name: {
-      type: DataType.STRING,
+      type: DataTypes.STRING,
     },
     Image: {
-      type: DataType.STRING,
+      type: DataTypes.STRING,
     },
     Bio: {
-      type: DataType.STRING,
+      type: DataTypes.STRING,
     },
     
   },
@@ -59,7 +59,7 @@ accounts.init(
     timestamps: true,
     freezeTableName: true,
     underscored: false,
-    modelName: "accounts",
+    modelName: "account",
   }
 );
 

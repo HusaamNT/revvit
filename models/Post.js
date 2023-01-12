@@ -9,19 +9,22 @@ posts.init(
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      PrimaryKey: true,
+      primaryKey: true,
       autoIncrement:true
     },
     Image: {
       type: DataTypes.STRING,
     },
     Bio: {
-      type: DataType.STRING,
+      type: DataTypes.STRING,
     },
     account_id:{
-      references:"account",
+      type: DataTypes.INTEGER,
+      reference:{
+      model:"account",
       key:"id"
     } 
+  }
   },
   {
     sequelize,

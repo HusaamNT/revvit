@@ -7,14 +7,16 @@ class postTags extends Model {}
 postTags.init(
   {
     post_tag: {
+      type: DataTypes.INTEGER,
         reference:{
             module: "posts",
             key: "id"
         },
     },
     hashtag_ID: {
+      type: DataTypes.INTEGER,
         reference:{
-            module: "hashTags",
+            model: "hashTags",
             key: "id"
         },
     },
