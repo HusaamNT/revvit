@@ -19,11 +19,11 @@ Hashtag.belongsToMany(Post, {
 })
 
 //many posts can have many hashtags
-Post.belongsToMany(hashtag, {
+Post.belongsToMany(Hashtag, {
     through: 'post_tag',
 
 })
-//the through model will be the posttag model
+//the through model will be the post tag model
 
 module.exports = {
     Account,
