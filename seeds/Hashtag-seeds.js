@@ -1,4 +1,4 @@
-const hashTags = require("../models/Hashtag");
+const HashTags = require("../models/Hashtag");
 
 
 const hashtagData =  [{
@@ -42,6 +42,6 @@ const hashtagData =  [{
 
 ];
 
-const seedHashtag = () => hashTags.bulkCreate(hashtagData);
+const seedHashtag = () => HashTags.bulkCreate(hashtagData);
 
 module.exports = seedHashtag;

@@ -2,9 +2,9 @@ const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection");
 
-class hashTags extends Model {}
+class HashTags extends Model {}
 
-hashTags.init(
+HashTags.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -25,8 +25,8 @@ hashTags.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "hashTags",
+    modelName: "HashTags",
   }
 );
 
-module.exports = hashTags;
+module.exports = HashTags;
