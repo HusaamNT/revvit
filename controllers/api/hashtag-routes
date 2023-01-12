@@ -17,7 +17,12 @@ router.get('/search/:hashtag', async (req, res, next) => {
   }
  })
 
-//ADD #Tags 
+//Post #Tags 
+router.post('/search/hashtag', async (res,)=> {
+  res.send("Search hashtags")
+}
+);
+
 
 
 module.exports = router;
