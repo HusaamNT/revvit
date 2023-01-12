@@ -27,6 +27,9 @@ accounts.init(
         len: [8],
       },
     },
+    Email: {
+      type: DataTypes.STRING,
+    },
     Name: {
       type: DataType.STRING,
     },
