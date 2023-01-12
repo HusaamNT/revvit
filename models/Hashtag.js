@@ -10,6 +10,7 @@ HashTags.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       PrimaryKey: true,
+      autoIncrement:true
     },
     Name: {
       type: DataTypes.STRING,

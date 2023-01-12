@@ -10,9 +10,13 @@ posts.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       PrimaryKey: true,
+      autoIncrement:true
     },
     Image: {
       type: DataTypes.STRING,
+    },
+    Bio: {
+      type: DataType.STRING,
     },
   },
   {
