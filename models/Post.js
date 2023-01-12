@@ -18,6 +18,10 @@ posts.init(
     Bio: {
       type: DataType.STRING,
     },
+    account_id:{
+      references:"account",
+      key:"id"
+    } 
   },
   {
     sequelize,

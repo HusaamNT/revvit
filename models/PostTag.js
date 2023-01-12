@@ -6,7 +6,7 @@ class postTags extends Model {}
 
 postTags.init(
   {
-    Post_tag: {
+    post_tag: {
         reference:{
             module: "posts",
             key: "id"

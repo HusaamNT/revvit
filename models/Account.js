@@ -12,6 +12,7 @@ accounts.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       PrimaryKey: true,
+      autoIncrement: true
     },
     Username: {
       type: DataTypes.STRING,
