@@ -17,4 +17,5 @@ fetch('/api/account/',{
     },
     body: JSON.stringify({email, username, password})
   });
+
   
