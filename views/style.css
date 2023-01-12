@@ -1,16 +1,9 @@
-* {
-    box-sizing: border-box;
-    background-color: grey;
-}
 
-body{
+body {
+    box-sizing: border-box;
     margin-left: 10%; 
     margin-right: 10%;
     margin-top: 2em;
-}
-
-header {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 nav ul li {
@@ -34,7 +27,6 @@ ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    background-color: grey;
 }
 
 li {
