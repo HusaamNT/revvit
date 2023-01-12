@@ -1,7 +1,8 @@
 // TODO:
-// create account
-// login
+// create account DONE
+// login DONE
 // view posts
+// log out
 // make posts when logged in
 // delete posts when post correlates to account that made it
 // view comments under a post 

@@ -27,6 +27,7 @@ router.post("/", async (req, res) => {
     req.session.save(() => {
       req.session.user_id = accountData.id;
       req.session.logged_in = true;
+      console.log(req.session.logged_in)
       res.json({ user: accountData, message: 'You are now logged in!' });
     });
   }else{
@@ -62,6 +63,7 @@ router.get("/:id", async (req, res) => {
 //create new account
 router.account("/", async (req, res) => {
   try {
+
     const accountData = await{
       email: req.body.email,
       username: req.body.username,
@@ -88,5 +90,12 @@ router.delete("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+//logout
+router.get("/logout", async (req, res) => {
+  try {
+    if(req.session.logged_in){}
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 module.exports = router;
