@@ -39,6 +39,7 @@ accounts.init(
     Bio: {
       type: DataType.STRING,
     },
+    
   },
   {
     hooks: {

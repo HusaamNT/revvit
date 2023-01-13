@@ -10,6 +10,8 @@ router.get('/', async (req, res) => {
   }
 });
 //get account by id, but for the user should be through unique username
+
+
 router.get('/:id', async (req, res) => {
  try{
   const accountData = await Account.findByPk(req.params.id);
@@ -21,6 +23,22 @@ router.get('/:id', async (req, res) => {
   res.status(500).json(err)
  }
 });
+
+router.get("/:id", (req,res) =>{
+  Account.findOne({
+    where: {
+      Username: req.body.Username
+    },
+  })
+  .then((accountData) =>{
+    res.status(200).json(accountData)
+  })
+  .catch(err => {
+    console.log(err)
+    return res.status(400).json(err)
+  })
+})
+
 //create new account
 router.account('/', async (req, res) => {
   try{
