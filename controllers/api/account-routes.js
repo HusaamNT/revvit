@@ -1,15 +1,14 @@
 const router = require("express").Router();
-const { Account, Post } = require("../../models");
+const { Accounts, Posts } = require("../../models");
 const { v4: uuid } = require("uuid");
 const bcrypt = require("bcrypt");
 
 //login
 router.post("/login", async (req, res) => {
   try {
-    const accountData = await User.findOne({
+    const accountData = await Accounts.findOne({
       where: { username: req.body.username },
     });
-
     if (!accountData) {
       res
         .status(400)
@@ -24,7 +23,7 @@ router.post("/login", async (req, res) => {
       .json({ message: 'Incorrect username or password, please try again' })
       }
     else if(isMatch){
-    req.session.save(() => {
+      req.session.save(() => {
       req.session.user_id = accountData.id;
       req.session.logged_in = true;
       console.log(req.session.logged_in)
@@ -42,7 +41,7 @@ router.post("/login", async (req, res) => {
 //get all accounts
 router.get("/", async (req, res) => {
   try {
-    const accountData = await Account.findAll();
+    const accountData = await Accounts.findAll();
     console.log(accountData);
     res.status(200).json(accountData) 
   } catch (err) {
@@ -52,7 +51,7 @@ router.get("/", async (req, res) => {
 //get account by id, but for the user should be through unique username
 router.get("/:id", async (req, res) => {
   try {
-    const accountData = await Account.findByPk(req.params.id);
+    const accountData = await Accounts.findByPk(req.params.id);
     if (!accountData) {
       res.status(404).json({ message: "Account not found" });
     }
@@ -65,6 +64,7 @@ router.get("/:id", async (req, res) => {
 //create new account
 router.post("/", async (req, res) => {
   try {
+    console.log('Router method called');
     const accountData = {
       email: req.body.email,
       username: req.body.username,
@@ -77,11 +77,22 @@ router.post("/", async (req, res) => {
     res.status(400).json(err);
   }
 });
+// const { email, username, password } = req.body
+// const accountData = await Account.create({email, username, password});
+// console.log(accountData);
+
+// const accountData = {
+//   email: req.body.email,
+//   username: req.body.username,
+//   password: req.body.password
+// }
+
+// await Account.create(accountData)
 
 //delete account of the current logged in account
 router.delete("/:id", async (req, res) => {
   try {
-    const accountData = await Account.destroy({
+    const accountData = await Accounts.destroy({
       where: {
         id: req.params.id,
       },

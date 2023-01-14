@@ -1,4 +1,4 @@
-const postTags = require("../models/PostTag");
+const PostTags = require("../models/PostTags");
 
 const postTagsData = [
 {
@@ -55,6 +55,6 @@ const postTagsData = [
 },
 ];
 
-const seedPostTags = () => postTags.bulkCreate(postTagsData);
+const seedPostTags = () => PostTags.bulkCreate(postTagsData);
 
 module.exports = seedPostTags;
