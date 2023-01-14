@@ -3,7 +3,10 @@ const { Account, Post } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
-        res.sendFile(path.join(__dirname, '../views/index.handlebars'))
+        res.render('all', {
+            title: 'Home',
+            message: 'Welcome to my website!'
+        });
         // const postData = await Post.findAll({
         //     include: [
         //         {

@@ -42,8 +42,15 @@ router.post("/login", async (req, res) => {
 //get all accounts
 router.get("/", async (req, res) => {
   try {
-    const accountData = await Account.findAll;
-    res.status(200).json(accountData);
+    const accountData = await Account.findAll({include: [
+      {
+        model: Account,
+        attributes: ['username', 'email'],
+      }
+    ]
+  })
+    console.log(accountData);
+    res.status(200).render('all', accountData) 
   } catch (err) {
     res.status(500).json(err);
   }
@@ -56,6 +63,7 @@ router.get("/:id", async (req, res) => {
       res.status(404).json({ message: "Account not found" });
     }
     res.status(200).json(accountData);
+    
   } catch (err) {
     res.status(500).json(err);
   }
