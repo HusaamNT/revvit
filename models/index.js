@@ -1,34 +1,34 @@
-const Account = require('./Account');
-const Hashtag = require('./Hashtag');
-const Post = require('./Post');
-const PostTag = require('./PostTag');
+const Accounts = require('./Accounts');
+const HashTags = require('./Hashtags');
+const PostTags = require('./PostTags')
+const Posts = require('./Posts');
 
 //accounts can post as much as they want
-Account.hasMany(Post, {
+Accounts.hasMany(Posts, {
     foreignKey: 'account_id'
 })
 
 //posts will be linked to 1 account
-Post.belongsTo(Account, {
+Posts.belongsTo(Accounts, {
     foreignKey: 'account_id'
 })
 
 //many hashtags can go onto many posts
-Hashtag.belongsToMany(Post, {
+HashTags.belongsToMany(Posts, {
     through: 'post_tag',
 })
 
 //many posts can have many hashtags
-Post.belongsToMany(Hashtag, {
+Posts.belongsToMany(HashTags, {
     through: 'post_tag',
 
 })
 //the through model will be the post tag model
 
 module.exports = {
-    Account,
-    Post,
-    Hashtag,
-    PostTag,
+    Accounts,
+    Posts,
+    HashTags,
+    PostTags,
   };
   

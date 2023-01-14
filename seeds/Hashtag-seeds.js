@@ -1,4 +1,4 @@
-const HashTags = require("../models/Hashtag");
+const HashTags = require("../models/Hashtags");
 
 const hashtagData = [
   {

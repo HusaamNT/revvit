@@ -59,7 +59,7 @@ Accounts.init(
     timestamps: true,
     freezeTableName: true,
     underscored: false,
-    modelName: "account",
+    modelName: "accounts",
   }
 );
 

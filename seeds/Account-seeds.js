@@ -1,4 +1,4 @@
-const Account = require("../models/Account");
+const Accounts = require("../models/Accounts");
 
 const AccountData = [
 {
@@ -18,6 +18,6 @@ const AccountData = [
 }
 ];
 
-const seedAccounts = () => Account.bulkCreate(AccountData);
+const seedAccounts = () => Accounts.bulkCreate(AccountData);
 
 module.exports = seedAccounts;
