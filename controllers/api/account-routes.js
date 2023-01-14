@@ -65,20 +65,23 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     console.log('Router method called');
-    const accountData = {
-      email: req.body.email,
-      username: req.body.username,
-      password: req.body.password
-    }
-    console.log(accountData);
-    await Account.create(accountData)
-    res.status(200).json(accountData);
+ const newUserData = {
+  email: req.body.email,
+  username: req.body.username,
+  password: req.body.password
+}
+newAccountData.password = await bcrypt.hash(newAccountData.password, 10);
+console.log(newUserData);
+await Accounts.create(newUserData)
+    console.log(newUserData);
+    res.status(200).json(newUserData);
   } catch (err) {
+    console.log(err)
     res.status(400).json(err);
   }
 });
 // const { email, username, password } = req.body
-// const accountData = await Account.create({email, username, password});
+// const accountData = await Accounts.create({email, username, password});
 // console.log(accountData);
 
 // const accountData = {
@@ -87,7 +90,10 @@ router.post("/", async (req, res) => {
 //   password: req.body.password
 // }
 
-// await Account.create(accountData)
+// await Accounts.create(accountData)
+
+// const newAccountData = req.body;
+// const account = await Accounts.create(newAccountData);
 
 //delete account of the current logged in account
 router.delete("/:id", async (req, res) => {
