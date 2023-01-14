@@ -4,7 +4,7 @@ const { v4: uuid } = require("uuid");
 const bcrypt = require("bcrypt");
 
 //login
-router.post("/", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const accountData = await User.findOne({
       where: { username: req.body.username },
