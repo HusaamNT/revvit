@@ -3,30 +3,14 @@ const { Account, Post } = require('../../models');
 const { v4: uuid } = require("uuid");
 
 //get all accounts 
-router.get('/', async (req, res) => {
-  try {
-    const accountData = await Account.findAll;
-  res.status(200).json(accountData)
-  } catch (err){
-    res.status(500).json(err)
-  }
-});
-//get account by id, but for the user should be through unique username
+router.get("/", (req, res)=>{
+  Account.findAll()
+  .then(data => res.status(200).json(data))
+  .catch(err => res.status(200).json(err))
+})
 
-
-router.get('/:id', async (req, res) => {
- try{
-  const accountData = await Account.findByPk(req.params.id);
-  if (!accountData){
-    res.status(404).json({ message: 'Account not found'});
-  }
-  res.status(200).json(accountData)
- }catch(err){
-  res.status(500).json(err)
- }
-});
-
-router.get("/:id", (req,res) =>{
+//get by username
+router.get("/:Username", (req,res) =>{
   Account.findOne({
     where: {
       Username: req.body.Username
@@ -42,28 +26,23 @@ router.get("/:id", (req,res) =>{
 })
 
 //create new account
-router.account('/', async (req, res) => {
-  try{
-    const accountData = await Account.create;
-    res.status(200).json(accountData);
-  }catch(err){
-    res.status(400).json(err);
-  }
-});
+router.post("/", (req,res) => {
+  Account.create(req.body)
+  .then((newBook) => res.json(newBook))
+  .catch((err) => res.json(err));
+})
 
 //delete account of the current logged in account
-router.delete('/:id', async (req, res) => {
-  try{
-    const accountData = await Account.destroy({
-      where: {
-        id: req.params.id
-      }
-    });
+router.delete("/:id", (req,res)=>{
+  Account.destroy({
+    where:{
+      id:req.params.id,
+    }
+  })
+  .then((newBook) => res.json(newBook))
+  .catch((err) => res.json(err))
 
-    res.status(200).json(accountData);
-   }catch(err){
-    res.status(500).json(err);
-   }
-});
+})
+
 
 module.exports = router;

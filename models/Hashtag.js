@@ -9,11 +9,7 @@ HashTags.init(
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-<<<<<<< HEAD
-      PrimaryKey: true,
-=======
       primaryKey: true,
->>>>>>> fa3ebcff20dc6aba046bd8f6a5a1675c843c9fea
       autoIncrement:true
     },
     Name: {
