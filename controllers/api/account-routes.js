@@ -42,15 +42,9 @@ router.post("/login", async (req, res) => {
 //get all accounts
 router.get("/", async (req, res) => {
   try {
-    const accountData = await Account.findAll({include: [
-      {
-        model: Account,
-        attributes: ['username', 'email'],
-      }
-    ]
-  })
+    const accountData = await Account.findAll();
     console.log(accountData);
-    res.status(200).render('all', accountData) 
+    res.status(200).json(accountData) 
   } catch (err) {
     res.status(500).json(err);
   }
@@ -71,12 +65,12 @@ router.get("/:id", async (req, res) => {
 //create new account
 router.post("/", async (req, res) => {
   try {
-
-    const accountData = await{
+    const accountData = {
       email: req.body.email,
       username: req.body.username,
-      password: req.body,password
+      password: req.body.password
     }
+    console.log(accountData);
     await Account.create(accountData)
     res.status(200).json(accountData);
   } catch (err) {
