@@ -30,4 +30,4 @@ PostTags.init(
   }
 );
 
-module.exports = postTags;
+module.exports = PostTags;

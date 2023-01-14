@@ -5,6 +5,6 @@ const hashtagRoutes = require('./hashtag-routes');
 
 router.use('/account', accountRoutes);
 router.use('/post', postRoutes);
-router.use('/hashtag', hashtagRoutes);
+//router.use('/hashtag', hashtagRoutes);
 
 module.exports = router;

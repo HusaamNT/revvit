@@ -63,4 +63,4 @@ Accounts.init(
   }
 );
 
-module.exports = accounts;
+module.exports = Accounts;

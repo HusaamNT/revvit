@@ -61,7 +61,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 //create new account
-router.account("/", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
 
     const accountData = await{
