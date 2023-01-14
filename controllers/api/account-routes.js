@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
       req.session.user_id = accountData.id;
       req.session.logged_in = true;
       console.log(req.session.logged_in)
-      res.json({ user: accountData, message: 'You are now logged in!' });
+      res.json({ user: accountData, message: 'You are now logged in!' }); 
     });
   }else{
   res.status(400).json(err)

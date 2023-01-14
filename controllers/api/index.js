@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const accountRoutes = require('./post-routes');
+const accountRoutes = require('./account-routes');
 const postRoutes = require('./post-routes');
 const hashtagRoutes = require('./hashtag-routes');
 

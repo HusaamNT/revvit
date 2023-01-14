@@ -4,9 +4,9 @@ const bcrypt = require("bcrypt");
 
 const sequelize = require("../config/connection");
 
-class accounts extends Model {}
+class Accounts extends Model {}
 
-accounts.init(
+Accounts.init(
   {
     id: {
       type: DataTypes.INTEGER,

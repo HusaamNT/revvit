@@ -26,7 +26,7 @@ HashTags.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "HashTags",
+    modelName: "hashTags",
   }
 );
 

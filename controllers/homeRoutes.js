@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const Post = {Post} = require('../models');
 
 router.get('/', async (req, res) => {
     try {
@@ -12,7 +13,7 @@ router.get('/', async (req, res) => {
         })
         const posts = postData.map((posts) => posts.get({ plain: true }));
         
-        res.render('homepage', {
+        res.render('index', {
             posts,
             logged_in: req.session.logged_in 
         })
