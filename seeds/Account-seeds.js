@@ -1,6 +1,7 @@
 const Accounts = require("../models/Accounts");
+const bcrypt = require("bcrypt");
 
-const AccountData = [
+let AccountData = [
 {
     Username: "SpeedDemon",
     Password: "password123456",
@@ -17,7 +18,12 @@ const AccountData = [
     Email: "Turbocharged@gmail.com"
 }
 ];
-
-const seedAccounts = () => Accounts.bulkCreate(AccountData);
-
-module.exports = seedAccounts;
+const seedAccount = async () => {
+    for (let i = 0; i < AccountData.length; i++) {
+      AccountData[i].Password = await bcrypt.hash('password', 10);
+    }
+  
+    console.log(AccountData);
+    Accounts.bulkCreate(AccountData);
+  }
+module.exports = seedAccount;

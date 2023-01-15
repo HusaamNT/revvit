@@ -7,8 +7,12 @@ const bcrypt = require("bcrypt");
 router.post("/login", async (req, res) => {
   try {
     const accountData = await Accounts.findOne({
-      where: { username: req.body.username },
+      where: { username: req.body.Username },
     });
+    // console.log(req.body.Username)
+    // console.log(accountData.Username)
+    // console.log(req.body.Password)
+    // console.log(accountData.Password)
     if (!accountData) {
       res
         .status(400)
@@ -16,7 +20,7 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    bcrypt.compare(req.body.password, accountData.password, (err, isMatch) => {
+    bcrypt.compare(req.body.Password, accountData.Password, (err, isMatch) => {
       if (!isMatch){
       res
       .status(400)
