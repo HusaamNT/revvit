@@ -20,9 +20,9 @@ let AccountData = [
 ];
 const seedAccount = async () => {
     for (let i = 0; i < AccountData.length; i++) {
-      AccountData[i].Password = await bcrypt.hash('password', 10);
+      const hashedPassword = await bcrypt.hash(AccountData[i].Password, 10);
+      AccountData[i].Password = hashedPassword;
     }
-  
     console.log(AccountData);
     Accounts.bulkCreate(AccountData);
   }
