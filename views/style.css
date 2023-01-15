@@ -1,4 +1,3 @@
-
 body {
     box-sizing: border-box;
     margin-left: 10%; 
@@ -39,4 +38,63 @@ footer {
     list-style: none;
 }
 
-    
+.wrapper{
+    width: 330px;
+    padding: 3rem 2rem;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+h1{
+    font-size: 2rem;
+    color: #07001f;
+    margin-bottom: 1.2rem;
+}
+form input{
+    width: 92%;
+    outline: none;
+    border: 1px solid #fff;
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    background: #e4e4e4;
+}
+button{
+    font-size: 1rem;
+    margin-top: 1.8rem;
+    padding: 10px 0;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    width: 30%;
+    color:#fff;
+    cursor: pointer;
+    background: lime;
+}
+button:hover{
+    background: rgba(0, 255, 132, 0.877);
+}
+input:focus{
+    border: 1px solid rgb(192, 192, 192);
+}
+.account{
+    font-size: 0.8rem;
+    margin-top: 1.4rem;
+    color: #636363;
+}
+.account a{
+    color: rgb(17, 107, 143);
+    text-decoration: none;
+}
+.recover{
+    text-align: center;
+    font-size: 0.7rem;
+    margin: 0.3rem 1.4rem 0 0;
+}
+.recover a{
+    text-decoration: none;
+    color: #464646;
+}
