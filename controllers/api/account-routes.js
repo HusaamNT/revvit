@@ -7,12 +7,12 @@ const bcrypt = require("bcrypt");
 router.post("/login", async (req, res) => {
   try {
     const accountData = await Accounts.findOne({
-      where: { username: req.body.Username },
+      where: { Username: req.body.Username },
     });
-    // console.log(req.body.Username)
-    // console.log(accountData.Username)
-    // console.log(req.body.Password)
-    // console.log(accountData.Password)
+    console.log(req.body.Username)
+    console.log(accountData.Username)
+    console.log(req.body.Password)
+    console.log(accountData.Password)
     if (!accountData) {
       res
         .status(400)
@@ -69,29 +69,29 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     console.log('Router method called');
- const newUserData = {
-  email: req.body.email,
-  username: req.body.username,
-  password: req.body.password
+ const newAccountData = {
+  Email: req.body.Email,
+  Username: req.body.Username,
+  Password: req.body.Password
 }
-newAccountData.password = await bcrypt.hash(newAccountData.password, 10);
-console.log(newUserData);
-await Accounts.create(newUserData)
-    console.log(newUserData);
-    res.status(200).json(newUserData);
+newAccountData.Password = await bcrypt.hash(newAccountData.Password, 10);
+console.log(newAccountData);
+await Accounts.create(newAccountData)
+    console.log(newAccountData);
+    res.status(200).json(newAccountData);
   } catch (err) {
     console.log(err)
     res.status(400).json(err);
   }
 });
-// const { email, username, password } = req.body
-// const accountData = await Accounts.create({email, username, password});
+// const { Email, Username, Password } = req.body
+// const accountData = await Accounts.create({Email, Username, Password});
 // console.log(accountData);
 
 // const accountData = {
-//   email: req.body.email,
-//   username: req.body.username,
-//   password: req.body.password
+//   Email: req.body.Email,
+//   Username: req.body.Username,
+//   Password: req.body.Password
 // }
 
 // await Accounts.create(accountData)
