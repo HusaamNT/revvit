@@ -3,7 +3,8 @@ const { Accounts, Posts } = require('../../models');
 //recieve all posts
 router.get('/', async (req, res) => {
   try {
-    const postData = await Posts.findAll;
+    const postData = await Posts.findAll();
+    console.log(postData)
   res.status(200).json(postData)
   } catch (err){
     res.status(500).json(err)
