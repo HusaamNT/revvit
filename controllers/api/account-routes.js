@@ -30,7 +30,7 @@ router.post("/login", async (req, res) => {
             .json({ message: 'Incorrect username or password, please try again error 2' });
         }
         else if(isMatch) {
-            req.session.user_id = accountData.id;
+            req.session.account_id = accountData.id;
             req.session.logged_in = true;
             console.log(req.session.logged_in);
             req.session.save(() => {
@@ -76,7 +76,8 @@ router.post("/", async (req, res) => {
  const newAccountData = {
   Email: req.body.Email,
   Username: req.body.Username,
-  Password: req.body.Password
+  Password: req.body.Password,
+  id: uuid()
 }
 newAccountData.Password = await bcrypt.hash(newAccountData.Password, 10);
 console.log(newAccountData);
