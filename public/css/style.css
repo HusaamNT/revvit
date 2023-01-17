@@ -13,7 +13,7 @@
 }
 :root {
     --main-color: #d90429;
-    --text-color: #020102;
+    --text-color: #693369;
     --bg-color: #fff;
 }
 
@@ -211,6 +211,3 @@ header{
 background: #f6f6f6ff;
 }
 
-.blog-container .box span{
-    
-}
