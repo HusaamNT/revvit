@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 <body>   
   <!-- navbar -->
   <header>
-
     <div class="nav container">
       <i class='bx bx-menu' id="menu-icon"></i>
       <!--logo-->
@@ -22,8 +23,6 @@
       <ul class="navbar">
         <li><a href="#log-in" class="active">Log In</a></li>
         <li><a href="#sign-in">Sign In</a></li>
-        <!-- <li><a href="#about">About</a></li>
-        <li><a href="#blog">Our Blog</a></li> -->
       </ul>
       <!-- search icon-->
       <i class='bx bx-search-alt' id="search-icon"></i>
@@ -54,14 +53,14 @@
   <div class="cars-container container">
 
   <div class="box">
-    <img src="images/car1.jpg" alt="">
-    <h2>Porche</h2>
+    <img src="/images/car1.jpg" alt="">
+    <h2>Porsche</h2>
   </div>
 
   <!-- box 2-->
   <div class="box">
     <img src="images/car2.jpg" alt="">
-    <h2>Porche</h2>
+    <h2>Porsche</h2>
   </div>
 
   <!-- box 3-->
@@ -70,28 +69,10 @@
     <img src="images/car3.jpg" alt="">
     <h2>Porsche</h2>
   </div>
-
-  <!-- box 4-->
-  
-  <div class="box">
-    <img src="images/car4.jpg" alt="">
-    <h2>Porsche</h2>
-  </div>
-
-  <!-- box 5-->
- 
-  <!-- <div class="box">
-    <img src="images/car5.jpg" alt="">
-    <h2>Porche</h2>
-  </div> -->
-  <!-- box 6-->
-  
-  <!-- <div class="box">
-    <img src="images/car6.jpg" alt="">
-    <h2>Porche</h2>
-  </div> -->
   </div>
 </section>
+<!-- blog -->
+
 <section class="blog" id="blog">
   <div class="heading">
     <span>Our Blog</span>
@@ -100,44 +81,73 @@
   </div>
 
   <div class="blog-container container">
-    
-    <div class="blog">
-      <img src="images/car4.jpg" alt="">
-      <span>JAN 20 2023</span>
-      <h3>Lorem ipsum dolor sit</h3>
-      <p>Lorem ipsum dolor sit amet, dweddewf tgtrbrvsdsdvcsevrecerc scscscasvad</p>
-      <a href="#" class="blog-btn">Find out more <i class='bx bx-right-arrow-alt'></i></a>
-    </div>
+    <!-- box 1-->
 
-    <!--box 2 -->
-    <div class="blog">
-      <img src="images/car1.jpg" alt="">
-      <span>JAN 20 2023</span>
-      <h3>Lorem ipsum dolor sit</h3>
-      <p>Lorem ipsum dolor sit amet, dweddewf tgtrbrvsdsdvcsevrecerc scscscasvad</p>
-      <a href="#" class="blog-btn">Find out more <i class='bx bx-right-arrow-alt'></i></a>
+     <div class="card-grid">
+    <div class="card card-shadow">
+      <div class="card-header card-image">
+        <img src="images/car1.jpg" alt="">
+      </div>
+      <div class="card-body">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt expedita nulla nobis cumque quisquam. Enim perspiciatis vero laudantium nemo cum!
+      </div>
+      <div class="card-footer">
+        <button class="btn">Details</button>
+        <button class="btn btn-outline">Contact Seller</button>
+      </div>
     </div>
-
-    <!-- box 3 -->
-
-    <div class="blog">
-      <img src="images/car2.jpg" alt="">
-      <span>JAN 20 2023</span>
-      <h3>Lorem ipsum dolor sit</h3>
-      <p>Lorem ipsum dolor sit amet, dweddewf tgtrbrvsdsdvcsevrecerc scscscasvad</p>
-      <a href="#" class="blog-btn">Find out more <i class='bx bx-right-arrow-alt'></i></a>
+    <div class="card card-shadow">
+      <div class="card-header card-image">
+        <img src="images/car1.jpg" alt="">
+      </div>
+      <div class="card-body">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt expedita nulla nobis cumque quisquam. Enim perspiciatis vero laudantium nemo cum!
+      </div>
+      <div class="card-footer">
+        <button class="btn">Details</button>
+        <button class="btn btn-outline">Contact Seller</button>
+      </div>
     </div>
+    <div class="card card-shadow">
+      <div class="card-header card-image">
+        <img src="images/car4.jpg" alt="">
+      </div>
+      <div class="card-body">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt expedita nulla nobis cumque quisquam. Enim perspiciatis vero laudantium nemo cum!
+      </div>
+      <div class="card-footer">
+        <button class="btn">Details</button>
+        <button class="btn btn-outline">Contact Seller</button>
+      </div>
+    </div>
+    <div class="card card-shadow">
+      <div class="card-header card-image">
+        <img src="images/car1.jpg" alt="">
+      </div>
+      <div class="card-body">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt expedita nulla nobis cumque quisquam. Enim perspiciatis vero laudantium nemo cum!
+      </div>
+      <div class="card-footer">
+        <button class="btn">Details</button>
+        <button class="btn btn-outline">Contact Seller</button>
+      </div>
+    </div>
+  </div>
+
+
 
   </div>
 </section>
-
-</body>
-</html>
-
-{{{body}}}
 
 <footer>
     <li>
         <a href="https://github.com/HusaamNT/revvit">Contact Us</a>
       </li>
 </footer>
+  <script src="/js/index.js"></script>
+</body>
+</html>
+
+{{{body}}}
+
+

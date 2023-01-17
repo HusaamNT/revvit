@@ -1,13 +1,6 @@
-// TODO:
-// create account DONE
-// login DONE
-// view posts
-// log out
-// make posts when logged in
-// delete posts when post correlates to account that made it
-// view comments under a post 
-// make a comment under a post 
-// delete comment under a post that you made or under a post that is yours
-// search hashtags 
-// search accounts 
-// search for terms in account and post bio 
+let search = document.querySelector('.search-box');
+console.log('yo')
+document.querySelector('#search-icon').onclick = () => {
+    console.log('hi')
+    search.classList.toggle('active');
+}
