@@ -1,24 +1,98 @@
-<div class="menu-container">
-  <div class="card-header col-md-10">
-    <h2>
-      &#127869 Current Menu
-    </h2>
-  </div>
-  <!-- We implement the built-in helper, #each. This helper will iterate over dishes -->
-  {{#each account as |accoun|}}
-  <!-- For each dish in the array of dish objects, the following <div> will be rendered. -->
-    <div class="dish col-md-5">
-      <!-- We use dish.id instead of <od> and <li> elements. -->
-      <p>
-        {{accoun.id}}.
-        {{accoun.username}}
-      </p>
+  <section class="home" id="home">
+    <div class="home-text">
+      <h1>Search for any car <br> that <span> intrigues </span> you!!!</h1>
+      <a href="#" class="btn">Get Involved</a>
     </div>
-    <div class="col-md-7">
-      <p>
-        <!-- guest_name will eventually go here -->
-      </p>
+  </section>
+
+  <!-- Cars section -->
+
+  <section>
+    <div class="heading">
+      <span>All Cars</span>
+      <h2>View any type of car</h2>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint repellat nihil aliquam, enim ea minus labore quo
+        ex recusandae.</p>
     </div>
-    <!-- Below, we close the #each helper. -->
-  {{/each}}
-</div>
+    <!-- box 1-->
+    <div class="cars-container container">
+
+      <div class="box">
+        <img src="images/car1.jpg" alt="">
+        <h2>Porche</h2>
+      </div>
+
+      <!-- box 2-->
+      <div class="box">
+        <img src="images/car2.jpg" alt="">
+        <h2>Porche</h2>
+      </div>
+
+      <!-- box 3-->
+
+      <div class="box">
+        <img src="images/car3.jpg" alt="">
+        <h2>Porsche</h2>
+      </div>
+
+      <!-- box 4-->
+
+      <div class="box">
+        <img src="images/car4.jpg" alt="">
+        <h2>Porsche</h2>
+      </div>
+
+      <!-- box 5-->
+
+      <!-- <div class="box">
+    <img src="images/car5.jpg" alt="">
+    <h2>Porche</h2>
+  </div> -->
+      <!-- box 6-->
+
+      <!-- <div class="box">
+    <img src="images/car6.jpg" alt="">
+    <h2>Porche</h2>
+  </div> -->
+    </div>
+  </section>
+  <section class="blog" id="blog">
+    <div class="heading">
+      <span>Our Blog</span>
+      <h2>Blog and posts</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat ad temporaus nulla distinctio placeat.
+        Placeat providen</p>
+    </div>
+
+    <div class="blog-container container">
+
+      <div class="blog">
+        <img src="images/car4.jpg" alt="">
+        <span>JAN 20 2023</span>
+        <h3>Lorem ipsum dolor sit</h3>
+        <p>Lorem ipsum dolor sit amet, dweddewf tgtrbrvsdsdvcsevrecerc scscscasvad</p>
+        <a href="#" class="blog-btn">Find out more <i class='bx bx-right-arrow-alt'></i></a>
+      </div>
+
+      <!--box 2 -->
+      <div class="blog">
+        <img src="images/car1.jpg" alt="">
+        <span>JAN 20 2023</span>
+        <h3>Lorem ipsum dolor sit</h3>
+        <p>Lorem ipsum dolor sit amet, dweddewf tgtrbrvsdsdvcsevrecerc scscscasvad</p>
+        <a href="#" class="blog-btn">Find out more <i class='bx bx-right-arrow-alt'></i></a>
+      </div>
+
+      <!-- box 3 -->
+
+      <div class="blog">
+        <img src="images/car2.jpg" alt="">
+        <span>JAN 20 2023</span>
+        <h3>Lorem ipsum dolor sit</h3>
+        <p>Lorem ipsum dolor sit amet, dweddewf tgtrbrvsdsdvcsevrecerc scscscasvad</p>
+        <a href="#" class="blog-btn">Find out more <i class='bx bx-right-arrow-alt'></i></a>
+      </div>
+
+    </div>
+  </section>
+

@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const { Account, Post } = require('../models');
 
-router.get('/poo', (req, res) => {
-    res.render('second')
+router.get('/signup', (req, res) => {
+    res.render('signup')
 })
+
 router.get('/', async (req, res) => {
     try {
         res.render('all', {
