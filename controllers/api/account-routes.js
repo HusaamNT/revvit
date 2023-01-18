@@ -58,15 +58,15 @@ router.get("/", async (req, res) => {
 });
 
 
-router.get("/:Username", (req,res) =>{
-  Account.findOne({
-    where: {
-      Username: req.body.Username
-    },
-  })
-  .then((accountData) => res.status(200).json(accountData))
-  .catch(err => res.status(400).json(err))
-})
+// router.get("/:Username", (req,res) =>{
+//   Accounts.findOne({
+//     where: {
+//       Username: req.body.Username
+//     },
+//   })
+//   .then((accountData) => res.status(200).json(accountData))
+//   .catch(err => res.status(400).json(err))
+// })
 
 
 //create new account
@@ -116,6 +116,25 @@ router.delete("/:id", async (req, res) => {
     res.status(200).json(accountData);
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+//find account by id
+router.get("/:id", async (req, res) => {
+  console.log(req.params.id)
+  if (!req.params.id) {
+    return res.status(400).json({ message: "Invalid request, id is missing" });
+  }
+  try {
+    const accountData = await Accounts.findByPk(req.params.id);
+    if(!accountData){
+      res.status(404).json({ message: 'Account not found' });
+    }else{
+    res.status(200).json(accountData);
+    }
+  } catch (err) {
+    res.status(500).json({ message: 'Internal server error' });
+    console.error(err);
   }
 });
 //logout
