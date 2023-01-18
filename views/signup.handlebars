@@ -1,17 +1,18 @@
-<div class="">
+<div style="margin-top: 200px;"><!-- Fix this properly -->
   <div class="wrapper">
     <h1>Create an account</h1>
     <form action="#">
-      <input type="text" placeholder="Email">
-      <input type="text" placeholder="Username">
-      <input type="password" placeholder="Password">
+      <input id="signup-email" name="email" type="text" placeholder="Email">
+      <input id="signup-username" type="text" placeholder="Username">
+      <input id="signup-password" type="password" placeholder="Password">
       <input type="password" placeholder="Confirm password">
+      <button id="sign-up">Sign up</button>
     </form>
-    <button>Sign up</button>
     <div class="account">
       Have an existing account? <a href="./login.handlebars">
         Login here
       </a>
     </div>
   </div>
-  <script src="/models/Account.js"></script>
+</div>
+<script src="/js/signup.js"></script>
