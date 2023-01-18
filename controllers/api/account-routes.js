@@ -119,12 +119,5 @@ router.delete("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-//logout
-router.get("/logout", async (req, res) => {
-  try {
-    if (req.session.logged_in) { }
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+
 module.exports = router;

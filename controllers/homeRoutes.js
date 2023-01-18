@@ -5,6 +5,13 @@ router.get('/signup', (req, res) => {
     res.render('signup')
 })
 
+router.get('/logout', (req, res) => {
+    delete req.session.username
+    req.session.save(() => {
+        res.redirect('/')
+    })
+})
+
 router.get('/', async (req, res) => {
     try {
         console.log(req.session.username)
