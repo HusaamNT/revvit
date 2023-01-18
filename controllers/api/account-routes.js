@@ -70,20 +70,21 @@ router.get("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 //create new account
 router.post("/", async (req, res) => {
   try {
-    console.log('Router method called');
     const newAccountData = {
       Email: req.body.email,
       Username: req.body.username,
       Password: req.body.password
     }
     newAccountData.Password = await bcrypt.hash(newAccountData.Password, 10);
-    console.log(newAccountData);
     await Accounts.create(newAccountData)
-    console.log(newAccountData);
-    res.status(200).json(newAccountData);
+    req.session.username = req.body.username
+    req.session.save(() => {
+      res.status(200).json(newAccountData);
+    })
   } catch (err) {
     console.log(err)
     res.status(400).json(err);
@@ -118,12 +119,5 @@ router.delete("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-//logout
-router.get("/logout", async (req, res) => {
-  try {
-    if (req.session.logged_in) { }
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+
 module.exports = router;

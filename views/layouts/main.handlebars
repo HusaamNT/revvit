@@ -22,8 +22,17 @@
       <!--Nav List-->
 
       <ul class="navbar">
+ second-html-page
         <li><a href="#log-in" class="active">Log In</a></li>
         <li><a href="/signup">Sign Up</a></li>
+        {{#if username}}
+        <li>Logged in as: {{username}}</li>
+        <li><a href="/logout">Log Out</a></li>
+        {{else}}
+        <li><a href="#log-in">Log In</a></li>
+        <li><a href="/signup">Sign Up</a></li>
+        {{/if}}
+ main
         <!-- <li><a href="#about">About</a></li>
         <li><a href="#blog">Our Blog</a></li> -->
       </ul>
