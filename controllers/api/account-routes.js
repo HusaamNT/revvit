@@ -18,27 +18,28 @@ router.post("/login", async (req, res) => {
         .status(400)
         .json({ message: 'Incorrect username or password, please try again error 1' });
       return;
-    }else{
+    } else {
 
       bcrypt.compare(req.body.Password, accountData.Password, (err, isMatch) => {
         if (err) {
-            res.status(500).json({ message: 'An error occurred, please try again' });
+          res.status(500).json({ message: 'An error occurred, please try again' });
         }
-        else if (!isMatch){
-            res
+        else if (!isMatch) {
+          res
             .status(400)
             .json({ message: 'Incorrect username or password, please try again error 2' });
         }
-        else if(isMatch) {
-            req.session.user_id = accountData.id;
-            req.session.logged_in = true;
-            console.log(req.session.logged_in);
-            req.session.save(() => {
-                res.json({ user: accountData, message: 'You are now logged in!' });
-            });
+        else if (isMatch) {
+          req.session.user_id = accountData.id;
+          req.session.logged_in = true;
+          console.log(req.session.logged_in);
+          req.session.save(() => {
+            res.json({ user: accountData, message: 'You are now logged in!' });
+          });
         }
-    })}
+      })
     }
+  }
   catch (err) {
     res.status(400).json(err);
     console.log("error 4")
@@ -51,7 +52,7 @@ router.get("/", async (req, res) => {
   try {
     const accountData = await Accounts.findAll();
     console.log(accountData);
-    res.status(200).json(accountData) 
+    res.status(200).json(accountData)
   } catch (err) {
     res.status(500).json(err);
   }
@@ -64,7 +65,7 @@ router.get("/:id", async (req, res) => {
       res.status(404).json({ message: "Account not found" });
     }
     res.status(200).json(accountData);
-    
+
   } catch (err) {
     res.status(500).json(err);
   }
@@ -73,14 +74,14 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     console.log('Router method called');
- const newAccountData = {
-  Email: req.body.Email,
-  Username: req.body.Username,
-  Password: req.body.Password
-}
-newAccountData.Password = await bcrypt.hash(newAccountData.Password, 10);
-console.log(newAccountData);
-await Accounts.create(newAccountData)
+    const newAccountData = {
+      Email: req.body.email,
+      Username: req.body.username,
+      Password: req.body.password
+    }
+    newAccountData.Password = await bcrypt.hash(newAccountData.Password, 10);
+    console.log(newAccountData);
+    await Accounts.create(newAccountData)
     console.log(newAccountData);
     res.status(200).json(newAccountData);
   } catch (err) {
@@ -120,7 +121,7 @@ router.delete("/:id", async (req, res) => {
 //logout
 router.get("/logout", async (req, res) => {
   try {
-    if(req.session.logged_in){}
+    if (req.session.logged_in) { }
   } catch (err) {
     res.status(500).json(err);
   }
