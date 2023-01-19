@@ -29,13 +29,13 @@ router.post("/login", async (req, res) => {
             .status(400)
             .json({ message: 'Incorrect username or password, please try again error 2' });
         }
-        else if (isMatch) {
-          req.session.user_id = accountData.id;
-          req.session.logged_in = true;
-          console.log(req.session.logged_in);
-          req.session.save(() => {
-            res.json({ user: accountData, message: 'You are now logged in!' });
-          });
+        else if(isMatch) {
+            req.session.account_id = accountData.id;
+            req.session.logged_in = true;
+            console.log(req.session.logged_in);
+            req.session.save(() => {
+                res.json({ user: accountData, message: 'You are now logged in!' });
+            });
         }
       })
     }
@@ -74,17 +74,18 @@ router.get("/:id", async (req, res) => {
 //create new account
 router.post("/", async (req, res) => {
   try {
-    const newAccountData = {
-      Email: req.body.email,
-      Username: req.body.username,
-      Password: req.body.password
-    }
-    newAccountData.Password = await bcrypt.hash(newAccountData.Password, 10);
-    await Accounts.create(newAccountData)
-    req.session.username = req.body.username
-    req.session.save(() => {
-      res.status(200).json(newAccountData);
-    })
+    console.log('Router method called');
+ const newAccountData = {
+  Email: req.body.Email,
+  Username: req.body.Username,
+  Password: req.body.Password,
+  id: uuid()
+}
+newAccountData.Password = await bcrypt.hash(newAccountData.Password, 10);
+console.log(newAccountData);
+await Accounts.create(newAccountData)
+    console.log(newAccountData);
+    res.status(200).json(newAccountData);
   } catch (err) {
     console.log(err)
     res.status(400).json(err);
@@ -120,4 +121,30 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+//find account by id
+router.get("/:id", async (req, res) => {
+  console.log(req.params.id)
+  if (!req.params.id) {
+    return res.status(400).json({ message: "Invalid request, id is missing" });
+  }
+  try {
+    const accountData = await Accounts.findByPk(req.params.id);
+    if(!accountData){
+      res.status(404).json({ message: 'Account not found' });
+    }else{
+    res.status(200).json(accountData);
+    }
+  } catch (err) {
+    res.status(500).json({ message: 'Internal server error' });
+    console.error(err);
+  }
+});
+//logout
+router.get("/logout", async (req, res) => {
+  try {
+    if(req.session.logged_in){}
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 module.exports = router;
