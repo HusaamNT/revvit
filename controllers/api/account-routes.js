@@ -18,14 +18,14 @@ router.post("/login", async (req, res) => {
         .status(400)
         .json({ message: 'Incorrect username or password, please try again error 1' });
       return;
-    }else{
+    } else {
 
       bcrypt.compare(req.body.Password, accountData.Password, (err, isMatch) => {
         if (err) {
-            res.status(500).json({ message: 'An error occurred, please try again' });
+          res.status(500).json({ message: 'An error occurred, please try again' });
         }
-        else if (!isMatch){
-            res
+        else if (!isMatch) {
+          res
             .status(400)
             .json({ message: 'Incorrect username or password, please try again error 2' });
         }
@@ -37,8 +37,9 @@ router.post("/login", async (req, res) => {
                 res.json({ user: accountData, message: 'You are now logged in!' });
             });
         }
-    })}
+      })
     }
+  }
   catch (err) {
     res.status(400).json(err);
     console.log("error 4")
@@ -51,23 +52,24 @@ router.get("/", async (req, res) => {
   try {
     const accountData = await Accounts.findAll();
     console.log(accountData);
-    res.status(200).json(accountData) 
+    res.status(200).json(accountData)
   } catch (err) {
     res.status(500).json(err);
   }
 });
+//get account by id, but for the user should be through unique username
+router.get("/:id", async (req, res) => {
+  try {
+    const accountData = await Accounts.findByPk(req.params.id);
+    if (!accountData) {
+      res.status(404).json({ message: "Account not found" });
+    }
+    res.status(200).json(accountData);
 
-
-// router.get("/:Username", (req,res) =>{
-//   Accounts.findOne({
-//     where: {
-//       Username: req.body.Username
-//     },
-//   })
-//   .then((accountData) => res.status(200).json(accountData))
-//   .catch(err => res.status(400).json(err))
-// })
-
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 //create new account
 router.post("/", async (req, res) => {

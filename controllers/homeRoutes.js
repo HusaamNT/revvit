@@ -1,9 +1,17 @@
 const router = require('express').Router();
 const { Account, Posts } = require('../models');
 
-router.get('/poo', (req, res) => {
-    res.render('second')
+router.get('/signup', (req, res) => {
+    res.render('signup')
 })
+
+router.get('/logout', (req, res) => {
+    delete req.session.username
+    req.session.save(() => {
+        res.redirect('/')
+    })
+})
+
 router.get('/', async (req, res) => {
     try {
         const postData = await Posts.findAll()
