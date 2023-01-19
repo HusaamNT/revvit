@@ -30,7 +30,7 @@ router.post("/login", async (req, res) => {
             .json({ message: 'Incorrect username or password, please try again error 2' });
         }
         else if(isMatch) {
-            req.session.user_id = accountData.id;
+            req.session.account_id = accountData.id;
             req.session.logged_in = true;
             console.log(req.session.logged_in);
             req.session.save(() => {
@@ -58,15 +58,15 @@ router.get("/", async (req, res) => {
 });
 
 
-router.get("/:Username", (req,res) =>{
-  Account.findOne({
-    where: {
-      Username: req.body.Username
-    },
-  })
-  .then((accountData) => res.status(200).json(accountData))
-  .catch(err => res.status(400).json(err))
-})
+// router.get("/:Username", (req,res) =>{
+//   Accounts.findOne({
+//     where: {
+//       Username: req.body.Username
+//     },
+//   })
+//   .then((accountData) => res.status(200).json(accountData))
+//   .catch(err => res.status(400).json(err))
+// })
 
 
 //create new account
@@ -76,7 +76,8 @@ router.post("/", async (req, res) => {
  const newAccountData = {
   Email: req.body.Email,
   Username: req.body.Username,
-  Password: req.body.Password
+  Password: req.body.Password,
+  id: uuid()
 }
 newAccountData.Password = await bcrypt.hash(newAccountData.Password, 10);
 console.log(newAccountData);
@@ -115,6 +116,25 @@ router.delete("/:id", async (req, res) => {
     res.status(200).json(accountData);
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+//find account by id
+router.get("/:id", async (req, res) => {
+  console.log(req.params.id)
+  if (!req.params.id) {
+    return res.status(400).json({ message: "Invalid request, id is missing" });
+  }
+  try {
+    const accountData = await Accounts.findByPk(req.params.id);
+    if(!accountData){
+      res.status(404).json({ message: 'Account not found' });
+    }else{
+    res.status(200).json(accountData);
+    }
+  } catch (err) {
+    res.status(500).json({ message: 'Internal server error' });
+    console.error(err);
   }
 });
 //logout

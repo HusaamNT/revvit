@@ -5,29 +5,132 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>   
-    <script src="../server.js"></script>
-    <header>
-        <h1>Revvit</a></h1>
-         <nav>
-            <ul>
-             <li>
-               <a href="index.html">Home</a>
-             </li>
-             <li>
-              <a href="#About us">About Us</a>
-             </li>
-             <li>
-               <a href="index.html">Log In</a>
-             </li>
-             <li>
-             <a href="index.html">Sign Up</a>
-             </li>  
-           </ul>
-         </nav>
-       </header>
+  <!-- navbar -->
+  <header>
+
+    <div class="nav container">
+      <i class='bx bx-menu' id="menu-icon"></i>
+      <!--logo-->
+
+      <a href="#" class="logo">REVV <span> IT </span></a>
+
+      <!--Nav List-->
+
+      <ul class="navbar">
+        <li><a href="#log-in" class="active">Log In</a></li>
+        <li><a href="#sign-in">Sign In</a></li>
+        <!-- <li><a href="#about">About</a></li>
+        <li><a href="#blog">Our Blog</a></li> -->
+      </ul>
+      <!-- search icon-->
+      <i class='bx bx-search-alt' id="search-icon"></i>
+      <!-- search-box-->
+      <div class="search-box container" >
+        <input type='search' name="" id="" placeholder="Search here...">
+      </div>
+
+    </div>
+  </header>  
+
+  <section class="home" id="home">
+    <div class="home-text">
+      <h1>Search for any car <br> that <span> intrigues </span> you!!!</h1>
+        <a href="#" class="btn">Get Involved</a>
+    </div>
+  </section>
+
+<!-- Cars section -->
+
+<section>
+  <div class="heading">
+    <span>All Cars</span>
+    <h2>View any type of car</h2>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint repellat nihil aliquam, enim ea minus labore quo ex recusandae.</p>
+  </div>
+  <!-- box 1-->
+  <div class="cars-container container">
+
+  <div class="box">
+    <img src="images/car1.jpg" alt="">
+    <h2>Porche</h2>
+  </div>
+
+  <!-- box 2-->
+  <div class="box">
+    <img src="images/car2.jpg" alt="">
+    <h2>Porche</h2>
+  </div>
+
+  <!-- box 3-->
+
+  <div class="box">
+    <img src="images/car3.jpg" alt="">
+    <h2>Porsche</h2>
+  </div>
+
+  <!-- box 4-->
+  
+  <div class="box">
+    <img src="images/car4.jpg" alt="">
+    <h2>Porsche</h2>
+  </div>
+
+  <!-- box 5-->
+ 
+  <!-- <div class="box">
+    <img src="images/car5.jpg" alt="">
+    <h2>Porche</h2>
+  </div> -->
+  <!-- box 6-->
+  
+  <!-- <div class="box">
+    <img src="images/car6.jpg" alt="">
+    <h2>Porche</h2>
+  </div> -->
+  </div>
+</section>
+<section class="blog" id="blog">
+  <div class="heading">
+    <span>Our Blog</span>
+    <h2>Blog and posts</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat ad temporaus nulla distinctio placeat. Placeat providen</p>
+  </div>
+
+  <div class="blog-container container">
+    
+    <div class="blog">
+      <img src="images/car4.jpg" alt="">
+      <span>JAN 20 2023</span>
+      <h3>Lorem ipsum dolor sit</h3>
+      <p>Lorem ipsum dolor sit amet, dweddewf tgtrbrvsdsdvcsevrecerc scscscasvad</p>
+      <a href="#" class="blog-btn">Find out more <i class='bx bx-right-arrow-alt'></i></a>
+    </div>
+
+    <!--box 2 -->
+    <div class="blog">
+      <img src="images/car1.jpg" alt="">
+      <span>JAN 20 2023</span>
+      <h3>Lorem ipsum dolor sit</h3>
+      <p>Lorem ipsum dolor sit amet, dweddewf tgtrbrvsdsdvcsevrecerc scscscasvad</p>
+      <a href="#" class="blog-btn">Find out more <i class='bx bx-right-arrow-alt'></i></a>
+    </div>
+
+    <!-- box 3 -->
+
+    <div class="blog">
+      <img src="images/car2.jpg" alt="">
+      <span>JAN 20 2023</span>
+      <h3>Lorem ipsum dolor sit</h3>
+      <p>Lorem ipsum dolor sit amet, dweddewf tgtrbrvsdsdvcsevrecerc scscscasvad</p>
+      <a href="#" class="blog-btn">Find out more <i class='bx bx-right-arrow-alt'></i></a>
+    </div>
+
+  </div>
+</section>
+
 </body>
 </html>
 

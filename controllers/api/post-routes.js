@@ -26,8 +26,17 @@ router.get('/:id', async (req, res) => {
 //create new post
 router.post('/', async (req, res) => {
   try{
-    const postData = await Posts.create;
+    if (req.session.logged_in) {
+    const postData = {
+      Image: req.body.Image,
+      Bio: req.body.Bio,
+      account_id: req.session.account_id
+    }
+    await Posts.create;
     res.status(200).json(postData);
+  }else{
+    res.json('Please log in to make a new post')
+  }
   }catch(err){
     res.status(400).json(err);
   }
