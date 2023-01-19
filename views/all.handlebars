@@ -1,8 +1,8 @@
-
+<link rel="stylesheet" href="/css/style.css">
   <!-- We implement the built-in helper, #each. This helper will iterate over dishes -->
   {{#each posts as |post|}}
 <div class="blog">
-      <img src="images/car2.jpg" alt="">
+      <img src="images/{{post.Image}}" alt="">
       <span>{{post.createdAt}}</span>
       <h3>SpeedRacer</h3>
       <p>{{post.Bio}}</p>
