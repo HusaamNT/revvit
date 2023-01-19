@@ -3,9 +3,8 @@ const createUser = async ev => {
   const email = document.getElementById('signup-email').value
   const username = document.getElementById('signup-username').value
   const password = document.getElementById('signup-password').value
-  const checkPassword = document.getElementById('password-match').value
   // TODO: Verify Confirm Password matches
-  function checkPassword(form) {
+  function createUser(form) {
     password1 = form.password1.value;
     password2 = form.password2.value;
 
